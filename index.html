@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PS Plus GEL Calculator</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="page-header">
+      <h1>PS Plus GEL Calculator</h1>
+      <p class="subtitle">
+        Convert Turkish Lira and Ukrainian Hryvnia prices to Georgian Lari using
+        configurable profit ranges.
+      </p>
+      <p class="rates-line" id="rates-line"></p>
+      <nav class="topnav">
+        <a href="settings.html">Open settings &rarr;</a>
+      </nav>
+    </header>
+
+    <main class="calculator-grid">
+      <section class="panel" data-currency="lira">
+        <header class="panel-header">
+          <h2>Turkish Lira (TRY)</h2>
+        </header>
+        <label class="field">
+          <span class="field-label">Price in TRY</span>
+          <input
+            type="number"
+            inputmode="decimal"
+            min="0"
+            step="1"
+            placeholder="e.g. 500"
+            id="lira-input"
+            autocomplete="off"
+          />
+        </label>
+        <dl class="result" id="lira-result">
+          <div class="result-row">
+            <dt>Base</dt>
+            <dd><span id="lira-base">—</span> GEL</dd>
+          </div>
+          <div class="result-row">
+            <dt>Markup</dt>
+            <dd id="lira-markup">—</dd>
+          </div>
+          <div class="result-row result-row--final">
+            <dt>Final</dt>
+            <dd><strong><span id="lira-final">—</span> GEL</strong></dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="panel" data-currency="hryvnia">
+        <header class="panel-header">
+          <h2>Ukrainian Hryvnia (UAH)</h2>
+        </header>
+        <label class="field">
+          <span class="field-label">Price in UAH</span>
+          <input
+            type="number"
+            inputmode="decimal"
+            min="0"
+            step="1"
+            placeholder="e.g. 200"
+            id="hryvnia-input"
+            autocomplete="off"
+          />
+        </label>
+        <dl class="result" id="hryvnia-result">
+          <div class="result-row">
+            <dt>Base</dt>
+            <dd><span id="hryvnia-base">—</span> GEL</dd>
+          </div>
+          <div class="result-row">
+            <dt>Markup</dt>
+            <dd id="hryvnia-markup">—</dd>
+          </div>
+          <div class="result-row result-row--final">
+            <dt>Final</dt>
+            <dd><strong><span id="hryvnia-final">—</span> GEL</strong></dd>
+          </div>
+        </dl>
+      </section>
+    </main>
+
+    <footer class="page-footer">
+      <p>
+        Formula: <code>ceil((price + price &times; profit%) &times; rate)</code>.
+        Defaults live in <code>js/config.js</code>.
+      </p>
+    </footer>
+
+    <script type="module" src="js/calculator.js"></script>
+  </body>
+</html>

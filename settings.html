@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Settings &mdash; PS Plus GEL Calculator</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="page-header">
+      <h1>Settings</h1>
+      <p class="subtitle">
+        Exchange rates and profit ranges used for price calculation.
+      </p>
+      <nav class="topnav">
+        <a href="index.html">&larr; Back to calculator</a>
+      </nav>
+    </header>
+
+    <div class="banner" role="note">
+      Edits here are <strong>session-only</strong> &mdash; they persist while
+      this tab is open but reset when you close it. To save them permanently,
+      click <em>Copy config as code</em> and paste the snippet into
+      <code>js/config.js</code>.
+    </div>
+
+    <section class="settings-card">
+      <h2>Rates &amp; pricing</h2>
+      <div class="rates">
+        <label class="field rates-field">
+          <span class="field-label">1 Turkish Lira (TRY) = </span>
+          <input
+            type="number"
+            id="rate-lira"
+            min="0"
+            step="0.001"
+            inputmode="decimal"
+          />
+          <span class="field-suffix">GEL</span>
+        </label>
+        <label class="field rates-field">
+          <span class="field-label">1 Ukrainian Hryvnia (UAH) = </span>
+          <input
+            type="number"
+            id="rate-hryvnia"
+            min="0"
+            step="0.001"
+            inputmode="decimal"
+          />
+          <span class="field-suffix">GEL</span>
+        </label>
+      </div>
+
+      <div class="tables-grid">
+        <div class="table-wrapper">
+          <h3>Lira Profit Ranges</h3>
+          <table class="ranges-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Min price</th>
+                <th>Max price</th>
+                <th>Profit %</th>
+                <th aria-label="remove"></th>
+              </tr>
+            </thead>
+            <tbody id="lira-rows"></tbody>
+          </table>
+          <button type="button" class="btn btn--secondary" data-add="lira">
+            + Add range
+          </button>
+        </div>
+
+        <div class="table-wrapper">
+          <h3>Hryvnia Profit Ranges</h3>
+          <table class="ranges-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Min price</th>
+                <th>Max price</th>
+                <th>Profit %</th>
+                <th aria-label="remove"></th>
+              </tr>
+            </thead>
+            <tbody id="hryvnia-rows"></tbody>
+          </table>
+          <button type="button" class="btn btn--secondary" data-add="hryvnia">
+            + Add range
+          </button>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button type="button" class="btn btn--primary" id="copy-config">
+          Copy config as code
+        </button>
+        <button type="button" class="btn" id="reset-config">
+          Reset to defaults
+        </button>
+        <span class="copy-feedback" id="copy-feedback" aria-live="polite"></span>
+      </div>
+    </section>
+
+    <script type="module" src="js/settings.js"></script>
+  </body>
+</html>
