@@ -1,7 +1,7 @@
 export const DEFAULT_CONFIG = {
   currency: {
-    liraToLari: 0.066,
-    hryvniaToLari: 0.066,
+    liraToLari: 305,
+    hryvniaToLari: 305,
   },
   profitRanges: {
     lira: [
